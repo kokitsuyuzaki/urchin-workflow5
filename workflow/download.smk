@@ -14,16 +14,16 @@ URCHIN_SAMPLES = list(set(URCHIN_SAMPLES))
 
 rule all:
     input:
-        expand('data/{sample}_1.fastq.gz', sample=URCHIN_SAMPLES),
-        expand('data/{sample}_2.fastq.gz', sample=URCHIN_SAMPLES)
+        expand('data/macrogen/{sample}_1.fastq.gz', sample=URCHIN_SAMPLES),
+        expand('data/macrogen/{sample}_2.fastq.gz', sample=URCHIN_SAMPLES)
 
 #################################
 # Data download
 #################################
 rule download_macrogen:
     output:
-        'data/{sample}_1.fastq.gz',
-        'data/{sample}_2.fastq.gz'
+        'data/macrogen/{sample}_1.fastq.gz',
+        'data/macrogen/{sample}_2.fastq.gz'
     resources:
         mem_mb=1000000
     benchmark:
